@@ -15,6 +15,8 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  // import task from /models/task.js
   task: [
     {
       type: mongoose.Types.ObjectId,
@@ -23,4 +25,5 @@ const userSchema = new mongoose.Schema({
   ],
 });
 
+/// export user to MongoDB
 module.exports = mongoose.model("user", userSchema);

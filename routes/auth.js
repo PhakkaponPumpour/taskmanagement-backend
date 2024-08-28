@@ -1,4 +1,8 @@
 const jwt = require("jsonwebtoken");
+////Uses jwt.verify() to verify the token. 
+//The verify method takes three arguments:
+//The token to be verified
+//The secret key ("pp") used for signing the token
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
@@ -8,7 +12,7 @@ const authenticateToken = (req, res, next) => {
     return res.status(401).json({ message: "Authentication token required" });
   } // if there's no token, return 401
 
-  jwt.verify(token, "tcmTM", (err, user) => {
+  jwt.verify(token, "pp", (err, user) => {
     if (err) {
       return res.status(403).json({ message: "Invalid token" });
     } // if the token is invalid, return 403

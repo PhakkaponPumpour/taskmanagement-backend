@@ -1,4 +1,6 @@
 const mongoose = require("mongoose");
+
+// create moongoose.Schema to manage Task in MongoDB  
 const taskScema = new mongoose.Schema(
   {
     title: {
@@ -23,4 +25,5 @@ const taskScema = new mongoose.Schema(
   { timestamps: true }
 );
 
+/// export task to mongoDB
 module.exports = mongoose.model("task", taskScema);
